@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <!-- placeholder for furture navbar -->
+        </div> <!-- end of navbar-->
+        <div class="main row">
+            <div class="span6">             <!-- Left column -->
+                <form action="/users/create" method="post" class="form-signin">
+                    <div class="form-group row">
+                        <label>Name:</label>
+                        <input type="text" class="form-control mb-2 mr-sm-2" id="user_name" name="user_name">
+                    </div>
+                    <div class="form-group row">
+                        <label>Dojo location:</label>
+                        <select class="form-select" name="location" id="locaion">
+                            <option value="">Choose a location</option>
+                            <option value="Bellevue, WA">Bellevue, WA</option>
+                            <option value="Boise, ID">Boise, ID</option>
+                            <option value="Chicago, IL">Chicago, IL</option>
+                            <option value="Dallas, TX">Dallax, TX</option>
+                            <option value="Los Angeles, CA">Los Angeles, CA</option>
+                            <option value="Silicon Valley, CA">Silicon Valley, CA</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label>Favorite programming language:</label>
+                        <select class="form-select" name="language" id="language">
+                            <option value="">Choose a language</option>
+                            <option value="C/C++">C/C++</option>
+                            <option value="C#">C#</option>
+                            <option value="Java">Java</option>
+                            <option value="JavaScript">JavaScript</option>
+                        </select>
+                    </div>
+                    <div class="form-group row">
+                        <label>Comments</label>
+                        <textarea name="comments" id="comments" cols="30" rows="10"></textarea>
+                    </div>
+                    <button type="submit">Create</button>
+                </form>
+                {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+                    {% if messages %}                            <!-- check if there are any messages -->
+                        {% for message in messages %}            <!-- loop through the messages -->
+                            <p style="color: red;">{{message}}</p> <!-- display each message in a paragraph tag -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <!-- Right column -->
+            <div class="span6">
+                <!-- placeholder for future content -->
+                <form action="" method="" >
+
+                </form>
+            </div>
+        </div> <!-- end of main -->
+    </div> <!-- end of container -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+</body>
+</html>
